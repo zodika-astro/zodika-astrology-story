@@ -6,61 +6,97 @@
       "d": 6.5,
       "media": { "src": "images/capricho.jpg", "kenburns": "slow" },
       "text": [
-        { "role": "body", "html": "você acha que astrologia nasceu no horóscopo da capricho?", "at": 0.4, "effects": ["fx-fade-up"] }
+        {
+          "role": "body",
+          "html": "você acha que astrologia nasceu no horóscopo da <span class=\"fx-underline\">capricho</span>?",
+          "at": 0.4,
+          "effects": ["fx-rise"]
+        }
       ],
-      "callouts": [],
-      "transitionIn": "light-wipe",
-      "transitionOut": "crossfade"
+      "transitionIn": "scene-enter",
+      "transitionOut": "scene-exit"
     },
     {
       "d": 9.0,
       "media": { "src": "images/tablet.jpg", "kenburns": "left" },
       "text": [
-        { "role": "body", "html": "não mesmo, os babilônios já faziam mapa astral 2.000 anos antes mesmo da bíblia ser escrita, há mais de 4000 anos atras, um estudo detalhado com desenhos de constelações, zodiaco e interpretações,", "at": 0.5, "effects": ["fx-fade-up"] }
+        {
+          "role": "body",
+          "html": "não mesmo, os babilônios já faziam mapa astral 2.000 anos antes mesmo da bíblia ser escrita, há mais de 4000 anos atras, um estudo detalhado com desenhos de constelações, zodiaco e interpretações,",
+          "at": 0.5,
+          "panel": true,
+          "pointer": { "x": 0.82, "y": 0.28 },
+          "effects": ["fx-type"],
+          "style": "--type-dur:4.2s;"
+        }
       ],
-      "callouts": [],
-      "transitionIn": "swipe",
-      "transitionOut": "crossfade"
+      "transitionIn": "scene-enter",
+      "transitionOut": "scene-exit"
     },
     {
       "d": 9.0,
       "media": { "src": "images/athens.jpg", "kenburns": "right" },
       "text": [
-        { "role": "body", "html": "com o dominío do império grego, platão e aristóteles tratavam astrologia como parte da filosofia, influenciando na política, acontecimentos históricos e manifestações naturais,", "at": 0.6, "effects": ["fx-fade-up"] }
+        {
+          "role": "body",
+          "html": "com o dominío do império grego, <span class=\"fx-highlight\">platão</span> e <span class=\"fx-shadow\">aristóteles</span> tratavam astrologia como parte da filosofia, influenciando na política, acontecimentos históricos e manifestações naturais,",
+          "at": 0.6,
+          "panel": true,
+          "pointer": { "x": 0.18, "y": 0.62 },
+          "effects": ["fx-type"],
+          "style": "--type-dur:4.6s;"
+        }
       ],
-      "callouts": [],
-      "transitionIn": "crossfade",
-      "transitionOut": "zoom"
+      "transitionIn": "scene-enter",
+      "transitionOut": "scene-exit"
     },
     {
       "d": 12.0,
       "media": { "src": "images/elizabeth.jpg", "kenburns": "up" },
       "text": [
-        { "role": "body", "html": "hoje morreriam ao saber que anos depois, é considerada “pseudociência”, para se ter uma idéia, em 1559, elizabeth I só foi coroada depois que seu astrólogo escolheu a data mais favorável pra assumir o reinado, em contraste, hoje tem gente que até compra iphone em mercúrio retrógrado.", "at": 0.5, "effects": ["fx-fade-up"] }
+        {
+          "role": "body",
+          "html": "hoje morreriam ao saber que anos depois, é considerada “<span class=\"fx-shadow\">pseudociência</span>”, para se ter uma idéia, em 1559, elizabeth I só foi coroada depois que seu astrólogo escolheu a data mais favorável pra assumir o reinado, em contraste, hoje tem gente que até compra iphone em mercúrio retrógrado.",
+          "at": 0.5,
+          "panel": true,
+          "pointer": { "x": 0.78, "y": 0.80 },
+          "effects": ["fx-type"],
+          "style": "--type-dur:7.0s;"
+        }
       ],
-      "callouts": [],
-      "transitionIn": "crossfade",
-      "transitionOut": "crossfade"
+      "transitionIn": "scene-enter",
+      "transitionOut": "scene-exit"
     },
     {
       "d": 8.5,
       "media": { "src": "images/jung.jpg", "kenburns": "down" },
       "text": [
-        { "role": "body", "html": "ainda acha astrologia é só fantasia medieval? o pai da psicologia moderna, carl jung, dedicou anos de estudos e concluiu que “astrologia representa a soma de todo o conhecimento psicológico da antiguidade”,", "at": 0.6, "effects": ["fx-fade-up"] }
+        {
+          "role": "body",
+          "html": "ainda acha astrologia é só fantasia medieval? o pai da psicologia moderna, <span class=\"fx-underline\">carl jung</span>, dedicou anos de estudos e concluiu que “astrologia representa a soma de todo o conhecimento psicológico da antiguidade”,",
+          "at": 0.6,
+          "panel": true,
+          "pointer": { "x": 0.20, "y": 0.78 },
+          "effects": ["fx-type"],
+          "style": "--type-dur:4.2s;"
+        }
       ],
-      "callouts": [],
-      "transitionIn": "zoom",
-      "transitionOut": "crossfade"
+      "transitionIn": "scene-enter",
+      "transitionOut": "scene-exit"
     },
     {
       "d": 7.5,
       "media": { "src": "images/productimage.png", "kenburns": "slow" },
       "text": [
-        { "role": "body", "html": "a astrologia é um estudo milenar, atravessou impérios, filósofos e cientistas, não prevê o futuro mas revela um olhar de diferentes culturas para compreender a vida.", "at": 0.6, "effects": ["fx-fade-up"] }
+        {
+          "role": "body",
+          "html": "a astrologia é um estudo milenar, atravessou impérios, filósofos e cientistas, não prevê o futuro mas revela um olhar de diferentes culturas para compreender a vida.",
+          "at": 0.6,
+          "effects": ["fx-rise"]
+        }
       ],
-      "callouts": [],
-      "transitionIn": "crossfade",
-      "transitionOut": "crossfade"
+      "transitionIn": "scene-enter",
+      "transitionOut": "scene-exit"
     }
   ]
 }
