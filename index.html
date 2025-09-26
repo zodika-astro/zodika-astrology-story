@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#fffbf4" />
+    <title>Zodika • Astrology Story</title>
+
+    <!-- =================== Fonts (preload recomendado) =================== -->
+    <link
+      rel="preload"
+      href="./assets/fonts/Inter-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Inter-SemiBold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/playfair-display-v40-latin-700.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- ========================= Stylesheets ============================ -->
+    <link rel="stylesheet" href="./styles/brand.css" />
+    <link rel="stylesheet" href="./styles/effects.css" />
+
+    <!-- Optional: @font-face direto aqui (usar os arquivos acima) -->
+    <style>
+      /* Inter 400 */
+      @font-face {
+        font-family: "Inter";
+        src: url("./assets/fonts/Inter-Regular.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      /* Inter 600 (semibold) */
+      @font-face {
+        font-family: "Inter";
+        src: url("./assets/fonts/Inter-SemiBold.woff2") format("woff2");
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+      /* Playfair Display 700 (titles) */
+      @font-face {
+        font-family: "Playfair Display";
+        src: url("./assets/fonts/playfair-display-v40-latin-700.woff2")
+          format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================== Stage 9:16 ============================ -->
+    <div class="stage">
+      <div class="frame-916" aria-live="polite">
+        <noscript
+          class="safe-area"
+          style="display:block;color:#48252f;font-family:Inter,system-ui,sans-serif;padding:16px"
+        >
+          Habilite JavaScript para ver a apresentação.
+        </noscript>
+      </div>
+    </div>
+
+    <!-- ============================ App ================================= -->
+    <!-- Dica: abra com ?project=demo (ou o nome do seu projeto),
+         ex.: /index.html?project=demo -->
+    <script type="module" src="./scripts/app.js"></script>
+  </body>
+</html>
