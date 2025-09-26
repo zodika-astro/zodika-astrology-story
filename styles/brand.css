@@ -438,5 +438,100 @@ body{
   .frame-916 .photo { height: min(44vh, 480px); }
   .frame-916 .zdk-text, .frame-916 .text-block { max-width: 90%; margin-left: 5%; }
 }
+/* ===================== ZODIKA • CINEMA DIDÁTICO v2 ===================== */
+/* palco */
+.frame-916{ padding:14px 14px 18px; }
+
+/* tipografia social (ajuste fino) */
+.frame-916 [data-role="title"], .frame-916 .text--title{
+  font-size: clamp(24px, 4.4vw, 36px); line-height:1.16; letter-spacing:-.01em;
+}
+.frame-916 [data-role="lead"], .frame-916 .text--lead{
+  font-size: clamp(17px, 3.2vw, 24px); line-height:1.34;
+}
+.frame-916 [data-role="body"], .frame-916 .text--body,
+.frame-916 [data-role="subtitle"], .frame-916 .subtitle{
+  font-size: clamp(16px, 3.0vw, 22px); line-height:1.45; color:var(--carbon);
+}
+
+/* bloco de texto: largura controlada */
+.frame-916 .zdk-text, .frame-916 .text-block{ max-width: 86%; margin: 0 auto 10px; }
+
+/* imagem em container (sempre contida) */
+.frame-916 .photo{
+  width: 88%; max-width:880px; height: min(44vh,520px);
+  margin: 6px auto 12px; border-radius:20px;
+  border:1px solid color-mix(in srgb, var(--almond) 78%, transparent);
+  background: linear-gradient(180deg,#fffaf2,#fff6ea);
+  box-shadow: 0 10px 30px rgba(16,18,17,.12); overflow:hidden; position:relative;
+}
+.frame-916 .photo img{ width:100%; height:100%; object-fit:contain; object-position:center; display:block; }
+
+/* scrim leve no topo para legibilidade quando sobrepõe */
+.frame-916 .photo::before{
+  content:""; position:absolute; inset:0 0 auto 0; height:32%;
+  background: linear-gradient(to bottom, rgba(255,251,244,.92), transparent);
+  pointer-events:none;
+}
+
+/* ===================== Painel suspenso (frosted) ===================== */
+.zdk-panel{
+  background: rgba(255,251,244,.78);
+  border:1px solid color-mix(in srgb, var(--almond) 70%, transparent);
+  border-radius:16px; padding:12px 14px;
+  box-shadow:0 8px 24px rgba(16,18,17,.10);
+  backdrop-filter: blur(6px);
+  max-width: 88%; margin: 8px auto;
+}
+
+/* conector (linha + bullet) — desenhado via <svg> posicionado */
+.leader-wrap{ position: relative; width: 100%; height: 0; }
+.leader-svg{ position:absolute; left:0; right:0; top:-8px; height:80px; pointer-events:none; }
+.leader-svg path{ fill:none; stroke: color-mix(in srgb, var(--plum) 50%, #000); stroke-width: 2; opacity:.65; }
+.leader-svg circle{ fill: var(--plum); opacity:.85; }
+
+/* ===================== Palavras destacadas ===================== */
+.fx-underline{ text-decoration: underline; text-decoration-thickness:.08em; text-underline-offset:.18em; }
+.fx-shadow{ text-shadow: 0 2px 12px rgba(72,37,47,.25); }
+.fx-highlight{
+  background: linear-gradient(transparent 58%, color-mix(in srgb, var(--almond) 60%, transparent) 58%);
+  padding: 0 .06em;
+}
+
+/* ===================== Motions ===================== */
+/* digitação “fluida”: revela preenchendo, sem steps duros */
+.fx-type{
+  --type-dur: 2.2s; --type-delay: 0s;
+  background-image: linear-gradient(90deg, currentColor 0 0);
+  background-repeat: no-repeat; background-size: 0% 1.05em; background-position: 0 100%;
+  -webkit-mask: linear-gradient(#000 0 0) 0 0/var(--mask-w,100%) 100% no-repeat;
+  animation: zdkType var(--type-dur) ease var(--type-delay) both;
+}
+@keyframes zdkType{
+  from{ background-size: 0% 1.05em; opacity:.02 } to{ background-size: 100% 1.05em; opacity:1 }
+}
+
+/* entrada elegante */
+.fx-rise{ opacity:0; transform: translateY(10px);
+  transition: opacity .48s var(--easing-out), transform .48s var(--easing-out); }
+.fx-rise.is-in{ opacity:1; transform:none; }
+
+/* transições de cena */
+.scene-enter{ animation: sceneIn .46s var(--easing-out) both; }
+.scene-exit { animation: sceneOut .42s ease both; }
+@keyframes sceneIn{
+  from{ opacity:0; clip-path: inset(0 0 100% 0 round 16px); }
+  to  { opacity:1; clip-path: inset(0 0 0% 0 round 16px); }
+}
+@keyframes sceneOut{ from{opacity:1} to{opacity:0; transform: translateY(6px)} }
+
+/* overlays discretos por padrão (pode desligar via querystring) */
+.fx-vignette{ opacity:.18; } .fx-grain{ opacity:.10; }
+
+/* micro-responsivo */
+@media (max-width:420px){
+  .frame-916 .photo{ height: min(42vh,470px); }
+  .zdk-panel{ max-width: 92%; }
+}
 
 
