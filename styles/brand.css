@@ -343,3 +343,100 @@ body{
 /* 4) segurança: nunca cortar conteúdo no topo */
 .frame-916 { padding: 18px 14px 20px; }
 
+/* ====================== POST1: 9:16 Modern Polish ======================= */
+
+/* Stage padding mais discreto */
+.frame-916 { padding: 18px 16px 20px; }
+
+/* Texto: escala social, foco em leitura */
+.frame-916 [data-role="title"],
+.frame-916 .text--title { font-size: clamp(28px, 4.8vw, 40px); line-height: 1.16; letter-spacing: -0.01em; }
+
+.frame-916 [data-role="lead"],
+.frame-916 .text--lead { font-size: clamp(18px, 3.2vw, 26px); line-height: 1.34; }
+
+.frame-916 [data-role="body"],
+.frame-916 .text--body,
+.frame-916 [data-role="subtitle"],
+.frame-916 .subtitle { font-size: clamp(18px, 3.1vw, 24px); line-height: 1.45; color: var(--carbon); }
+
+/* largura controlada pro texto não “invadir” a imagem */
+.frame-916 .zdk-text, 
+.frame-916 .text-block { max-width: 86%; margin-left: 7%; }
+
+/* Container de imagem “conteúdo”, não background */
+.frame-916 .photo {
+  width: 86%;
+  max-width: 860px;
+  height: min(46vh, 560px);         /* altura mais elegante */
+  margin: 10px auto 8px;
+  background: linear-gradient(180deg, #fffaf2, #fff6ea);
+  border: 1px solid color-mix(in srgb, var(--almond) 80%, transparent);
+  border-radius: 20px;
+  box-shadow: 0 8px 28px rgba(16,18,17,.10);
+  overflow: hidden;
+}
+.frame-916 .photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;              /* <<< mantém contida */
+  object-position: center;
+  display: block;
+  filter: saturate(1) contrast(1.02);
+}
+
+/* Créditos e callouts mais leves */
+.frame-916 .media-credit, .frame-916 .credit {
+  font-size: 12px; opacity: .82;
+  background: rgba(255,255,255,.72);
+  border: 1px solid color-mix(in srgb, var(--almond) 70%, transparent);
+  padding: 6px 10px; border-radius: 999px;
+  backdrop-filter: blur(2px);
+}
+.frame-916 .callout {
+  font-size: 15px; line-height: 1.35;
+  max-width: 78%;
+  background: rgba(255,251,244,.88);
+  border: 1px solid color-mix(in srgb, var(--almond) 70%, transparent);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(16,18,17,.06);
+}
+
+/* Underline moderno (tira linha grossa “tosca”) */
+.fx-underline {
+  text-decoration-thickness: .08em;
+  text-underline-offset: .18em;
+  text-decoration-color: color-mix(in srgb, var(--plum) 88%, transparent);
+}
+
+/* Destaque com “marcatexto” suave (já existia, mas deixamos mais fino) */
+.highlight {
+  background: linear-gradient(transparent 62%, color-mix(in srgb, var(--almond) 55%, transparent) 62%);
+  padding: 0 .04em;
+}
+
+/* Vignette e grain quase invisíveis (caso não use ?grain=0&vignette=0) */
+.fx-vignette { opacity: .20; }
+.fx-grain { opacity: .12; animation: grainPulse 9s ease-in-out infinite; }
+@keyframes grainPulse { 0%,100%{opacity:.10} 50%{opacity:.16} }
+
+/* Animações mais limpas (redefine as existentes sem quebrar) */
+.fx-fade-up { opacity: 0; transform: translateY(10px); transition: opacity .5s var(--easing-out), transform .5s var(--easing-out); }
+.fx-fade-up.is-in { opacity: 1; transform: none; }
+
+.fx-fade { opacity: 0; transition: opacity .5s var(--easing-out); }
+.fx-fade.is-in { opacity: 1; }
+
+/* Transições entre cenas (suaviza) */
+.scene-enter { animation: sceneIn .46s var(--easing-out) both; }
+.scene-exit  { animation: sceneOut .46s ease both; }
+@keyframes sceneIn  { from{opacity:0; transform: translateY(6px)} to{opacity:1; transform:none} }
+@keyframes sceneOut { from{opacity:1} to{opacity:0} }
+
+/* Safe area em telas bem pequenas */
+@media (max-width: 420px){
+  .frame-916 .photo { height: min(44vh, 480px); }
+  .frame-916 .zdk-text, .frame-916 .text-block { max-width: 90%; margin-left: 5%; }
+}
+
+
