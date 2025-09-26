@@ -1,0 +1,227 @@
+/* ============================================================================
+ * ZODIKA • effects.css
+ * Reusable animation primitives for social-video (9:16)
+ * - pure CSS utilities, timeline-friendly
+ * - keep names semantic and short
+ * ========================================================================== */
+
+/* ============================== 1) GLOBAL VARS ============================ */
+:root{
+  /* baseline timings */
+  --fx-dur-1: .35s;
+  --fx-dur-2: .6s;
+  --fx-dur-3: .9s;
+  --fx-dur-4: 1.2s;
+  --fx-delay-1: .12s;
+  --fx-delay-2: .24s;
+  --fx-ease: cubic-bezier(.22,.61,.36,1);
+
+  /* ken burns */
+  --kb-zoom-min: 1.02;
+  --kb-zoom-mid: 1.05;
+  --kb-zoom-max: 1.08;
+
+  /* highlight underline */
+  --hl-thickness: .12em;
+
+  /* swipe / wipe direction hint */
+  --dir: 1; /* 1 → left-to-right, -1 → right-to-left (set per element if needed) */
+}
+
+/* Motion safety */
+@media (prefers-reduced-motion: reduce){
+  :root{
+    --fx-dur-1: .001ms; --fx-dur-2: .001ms; --fx-dur-3: .001ms; --fx-dur-4: .001ms;
+    --fx-delay-1: 0ms; --fx-delay-2: 0ms;
+  }
+  *{ transition-duration: .001ms !important; animation-duration: .001ms !important; }
+}
+
+/* ============================== 2) REVEALS ================================ */
+/* Fade / Slide / Scale reveals — apply .is-in to end the transition
+   Ideal for timeline control by JS adding/removing classes. */
+
+.fx-fade{
+  opacity:0; transition: opacity var(--fx-dur-2) var(--fx-ease);
+}
+.fx-fade.is-in{ opacity:1; }
+
+.fx-fade-up{
+  opacity:0; transform: translateY(10px);
+  transition: opacity var(--fx-dur-2) var(--fx-ease), transform var(--fx-dur-2) var(--fx-ease);
+}
+.fx-fade-up.is-in{ opacity:1; transform:none; }
+
+.fx-fade-left{
+  opacity:0; transform: translateX(12px);
+  transition: opacity var(--fx-dur-2) var(--fx-ease), transform var(--fx-dur-2) var(--fx-ease);
+}
+.fx-fade-left.is-in{ opacity:1; transform:none; }
+
+.fx-scale-in{
+  opacity:0; transform: scale(.98);
+  transition: opacity var(--fx-dur-2) var(--fx-ease), transform var(--fx-dur-2) var(--fx-ease);
+}
+.fx-scale-in.is-in{ opacity:1; transform:none; }
+
+/* ============================== 3) KEN BURNS ============================== */
+/* Mild cinematic pan/zoom on .photo > img (continuous; timeline can toggle classes) */
+@keyframes kb-zoom-center   { from{transform:scale(1)} to{transform:scale(var(--kb-zoom-mid))} }
+@keyframes kb-zoom-right    { from{transform:scale(1) translateX(0)} to{transform:scale(var(--kb-zoom-mid)) translateX(-2%)} }
+@keyframes kb-zoom-left     { from{transform:scale(1) translateX(0)} to{transform:scale(var(--kb-zoom-mid)) translateX(2%)} }
+@keyframes kb-zoom-up       { from{transform:scale(1) translateY(0)} to{transform:scale(var(--kb-zoom-mid)) translateY(2%)} }
+@keyframes kb-zoom-down     { from{transform:scale(1) translateY(0)} to{transform:scale(var(--kb-zoom-mid)) translateY(-2%)} }
+
+.kb-slow   { animation: kb-zoom-center 8s linear forwards; }
+.kb-center { animation: kb-zoom-center 6s linear forwards; }
+.kb-left   { animation: kb-zoom-left   6s linear forwards; }
+.kb-right  { animation: kb-zoom-right  6s linear forwards; }
+.kb-up     { animation: kb-zoom-up     6s linear forwards; }
+.kb-down   { animation: kb-zoom-down   6s linear forwards; }
+
+/* Stronger zoom variant (set on element before class) */
+.kb-strong{ --kb-zoom-mid: var(--kb-zoom-max); }
+
+/* ============================== 4) TYPE EFFECT ============================ */
+/* Use for short emphasis lines (avoid long paragraphs) */
+.fx-type{
+  --caret-color: currentColor;
+  display:inline-block; white-space:nowrap; overflow:hidden;
+  vertical-align:bottom;
+  /* set width via JS when starting, or use ch unit helper below */
+}
+.fx-type.caret::after{
+  content:""; display:inline-block; width:.6ch; height:1em;
+  background: currentColor; margin-left:.2ch;
+  animation: caretBlink 1s step-end infinite;
+}
+@keyframes caretBlink{ 50%{ opacity:0; } }
+
+/* Optional width helpers (approx) — use one or set style="width: XXch" */
+.w-10ch{ width:10ch; } .w-16ch{ width:16ch; } .w-22ch{ width:22ch; }
+.w-28ch{ width:28ch; } .w-34ch{ width:34ch; } .w-42ch{ width:42ch; }
+
+/* ============================== 5) UNDERLINE HIGHLIGHT ==================== */
+/* Animated underline from right → left (good for keyword highlights) */
+.fx-underline{
+  background:
+    linear-gradient(currentColor, currentColor) 100% 100% / 0 var(--hl-thickness) no-repeat;
+  transition: background-size var(--fx-dur-2) var(--fx-ease), background-position var(--fx-dur-2) var(--fx-ease);
+}
+.fx-underline.is-in{
+  background-size: 100% var(--hl-thickness);
+  background-position: 0 100%;
+}
+
+/* ============================== 6) CALLOUT LINE =========================== */
+/* Draw the line, then pop the bubble */
+.callout__line{
+  transform-origin:left center;
+  opacity:.0; scale:0 1;
+  transition: opacity var(--fx-dur-1) linear, scale var(--fx-dur-2) var(--fx-ease);
+}
+.callout.is-in .callout__line{ opacity:1; scale:1 1; }
+
+.callout__bubble{
+  opacity:0; transform: translateY(4px);
+  transition: opacity var(--fx-dur-2) var(--fx-ease) var(--fx-delay-1),
+              transform var(--fx-dur-2) var(--fx-ease) var(--fx-delay-1);
+}
+.callout.is-in .callout__bubble{ opacity:1; transform:none; }
+
+/* ============================== 7) TRANSITIONS ============================ */
+/* Crossfade (apply on outgoing + incoming layers) */
+.fx-crossfade-enter{ animation: crossIn var(--fx-dur-3) var(--fx-ease) both; }
+.fx-crossfade-exit { animation: crossOut var(--fx-dur-3) var(--fx-ease) both; }
+@keyframes crossIn { from{opacity:0} to{opacity:1} }
+@keyframes crossOut{ from{opacity:1} to{opacity:0} }
+
+/* Swipe (content slides horizontally; set --dir=1 or -1 on element) */
+.fx-swipe-enter{
+  animation: swipeIn var(--fx-dur-3) var(--fx-ease) both;
+}
+.fx-swipe-exit{
+  animation: swipeOut var(--fx-dur-3) var(--fx-ease) both;
+}
+@keyframes swipeIn  { from{transform:translateX(calc(100% * var(--dir))); opacity:.0} to{transform:none; opacity:1} }
+@keyframes swipeOut { from{transform:none; opacity:1} to{transform:translateX(calc(-100% * var(--dir))); opacity:0} }
+
+/* Zoom match-cut (zoom out current, zoom in next) */
+.fx-zoom-in   { animation: zoomIn var(--fx-dur-3) var(--fx-ease) both; }
+.fx-zoom-out  { animation: zoomOut var(--fx-dur-3) var(--fx-ease) both; }
+@keyframes zoomIn  { from{transform:scale(1.06); opacity:.0} to{transform:scale(1); opacity:1} }
+@keyframes zoomOut { from{transform:scale(1); opacity:1} to{transform:scale(.96); opacity:0} }
+
+/* Light wipe (trendy social effect: bright streak passes) */
+.fx-light-wipe{
+  position:relative; overflow:hidden;
+}
+.fx-light-wipe::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.8) 50%, transparent 100%);
+  transform: translateX(-120%);
+  mix-blend-mode: screen;
+  animation: lightWipe var(--fx-dur-4) ease both;
+}
+@keyframes lightWipe{ to{ transform: translateX(120%); } }
+
+/* Micro glitch (use sparingly as accent) */
+.fx-glitch{
+  position:relative;
+  animation: glitchJitter .28s steps(2, end) 1;
+}
+@keyframes glitchJitter{
+  0%{ transform: translate(0,0) }
+  25%{ transform: translate(1px,-1px) }
+  50%{ transform: translate(-1px,1px) }
+  75%{ transform: translate(1px,1px) }
+  100%{ transform: translate(0,0) }
+}
+
+/* ============================== 8) BLURS & FOCUS ========================== */
+/* Quick focus pull (cinematic) */
+.fx-focus-in   { animation: focusIn var(--fx-dur-3) var(--fx-ease) both; }
+.fx-focus-out  { animation: focusOut var(--fx-dur-3) var(--fx-ease) both; }
+@keyframes focusIn  { from{ filter: blur(6px); opacity:.0 } to{ filter: blur(0); opacity:1 } }
+@keyframes focusOut { from{ filter: blur(0); opacity:1 } to{ filter: blur(6px); opacity:0 } }
+
+/* ============================== 9) UTILITY: DURATIONS/DELAYS ============= */
+/* Apply granular control without inline styles */
+.dur-1{ animation-duration: var(--fx-dur-1) !important; transition-duration: var(--fx-dur-1) !important; }
+.dur-2{ animation-duration: var(--fx-dur-2) !important; transition-duration: var(--fx-dur-2) !important; }
+.dur-3{ animation-duration: var(--fx-dur-3) !important; transition-duration: var(--fx-dur-3) !important; }
+.dur-4{ animation-duration: var(--fx-dur-4) !important; transition-duration: var(--fx-dur-4) !important; }
+
+.delay-0   { animation-delay: 0s !important; transition-delay: 0s !important; }
+.delay-1   { animation-delay: var(--fx-delay-1) !important; transition-delay: var(--fx-delay-1) !important; }
+.delay-2   { animation-delay: var(--fx-delay-2) !important; transition-delay: var(--fx-delay-2) !important; }
+.delay-300 { animation-delay: .3s !important; transition-delay: .3s !important; }
+.delay-600 { animation-delay: .6s !important; transition-delay: .6s !important; }
+.delay-900 { animation-delay: .9s !important; transition-delay: .9s !important; }
+
+/* Stagger helpers (use on siblings: nth-child) */
+.stagger-children > *{
+  --stg: 0s;
+  animation-delay: calc(var(--stg) * (var(--i, 0)));
+  transition-delay: calc(var(--stg) * (var(--i, 0)));
+}
+.stagger-100 > *{ --stg: .1s; }
+.stagger-150 > *{ --stg: .15s; }
+.stagger-200 > *{ --stg: .2s; }
+
+/* ============================== 10) OVERLAY PULSES ======================== */
+/* Subtle grain pulse to keep frames alive when idle */
+@keyframes grainPulse{ 0%,100%{opacity:.18} 50%{opacity:.24} }
+.fx-grain{ animation: grainPulse 6s ease-in-out infinite; }
+
+/* ============================== 11) STATE HELPERS ========================= */
+/* When recording, you may want to force visibility or mute pointer events */
+.pointer-none{ pointer-events:none !important; }
+.visible{ opacity:1 !important; transform:none !important; }
+
+/* ============================== 12) NOTES =================================
+- JS timeline should add/remove .is-in and switch between enter/exit classes
+- Combine primitives: e.g., .fx-fade-up + .fx-underline for titles
+- For direction-sensitive swipes set: style="--dir:-1" to reverse
+- Keep typewriter short; for long text prefer fade + slight delay
+============================================================================ */
