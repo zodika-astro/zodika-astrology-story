@@ -1,0 +1,275 @@
+/* ============================================================================
+ * ZODIKA • brand.css
+ * Global design tokens + 9:16 stage + reusable primitives for social video
+ * - mobile-first, video-like (no UI)
+ * - English variables & comments
+ * - safe-area for Reels/TikTok
+ * ========================================================================== */
+
+/* ============================== 1) TOKENS ================================= */
+:root{
+  /* brand palette */
+  --color-plum: #48252f;
+  --color-ivory: #fffbf4;
+  --color-ink: #29281e;
+  --color-muted: #857861;
+  --color-sand: #e7d4bb;
+  --color-accent: #caa27a;
+  --color-error: #b40000;
+
+  /* elevation & radius */
+  --radius-sm: 12px;
+  --radius: 18px;
+  --radius-lg: 24px;
+  --shadow-sm: 0 6px 16px rgba(16,18,17,.06);
+  --shadow-md: 0 8px 28px rgba(16,18,17,.10);
+  --shadow-lg: 0 14px 40px rgba(16,18,17,.16);
+
+  /* motion */
+  --dur-quick: .22s;
+  --dur: .28s;
+  --easing: cubic-bezier(.22, .61, .36, 1);
+
+  /* stage */
+  --frame-w: 1080px;   /* target render width */
+  --frame-h: 1920px;   /* target render height */
+  --safe-top: 72px;    /* UI-safe margins for social apps */
+  --safe-bottom: 120px;
+  --pad: clamp(12px, 2.8vw, 24px);
+
+  /* typography */
+  --font-serif: "Playfair Display", "Lora", ui-serif, Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* text sizes (video-safe) */
+  --fs-title: clamp(28px, 4.6vw, 48px);
+  --fs-subtitle: clamp(20px, 3.6vw, 30px);
+  --fs-lead: clamp(16px, 2.8vw, 22px);
+  --fs-body: clamp(15px, 2.4vw, 20px);
+  --fs-caption: clamp(12px, 2vw, 16px);
+}
+
+/* ============================== 2) BASE =================================== */
+*{ box-sizing:border-box; }
+html, body{ height:100%; }
+html{ -webkit-text-size-adjust:100%; }
+body{
+  margin:0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background:
+    radial-gradient(1000px 700px at 20% 10%, rgba(202,162,122,.14), transparent 60%),
+    radial-gradient(1000px 700px at 80% 90%, rgba(72,37,47,.10), transparent 60%),
+    var(--color-ivory);
+}
+
+/* a11y helper */
+.sr-only{
+  position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+/* ============================== 3) STAGE 9:16 ============================== */
+/* Centers a 9:16 frame on any screen; scales responsively without distortion. */
+.stage{
+  min-height:100%;
+  display:grid;
+  place-items:center;
+  padding:16px;
+}
+
+.frame-916{
+  /* keep true 9:16 while adapting to viewport */
+  width: min(100vw, calc(100vh * 9 / 16));
+  height: min(100vh, calc(100vw * 16 / 9));
+  aspect-ratio: 9 / 16;
+
+  /* visual container */
+  background: #fffdf8;
+  border-radius: 24px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+
+  /* optional subtle border to help when recording */
+  outline: 1px solid rgba(41,40,30,.06);
+}
+
+/* Invisible safe guides (toggle by adding .debug-safe to .frame-916) */
+.frame-916.debug-safe::before,
+.frame-916.debug-safe::after{
+  content:"";
+  position:absolute; left:0; right:0; pointer-events:none;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(72,37,47,.06), rgba(72,37,47,.06) 1px,
+    transparent 1px, transparent 12px
+  );
+  height:1px;
+}
+.frame-916.debug-safe::before{ top: var(--safe-top); }
+.frame-916.debug-safe::after{ bottom: var(--safe-bottom); }
+
+/* Content area respecting safe top/bottom (titles/captions live here) */
+.safe-area{
+  position:absolute; inset: var(--safe-top) var(--pad) var(--safe-bottom) var(--pad);
+  display:block;
+}
+
+/* Layering helpers for compositing */
+.layer{ position:absolute; inset:0; }
+.layer--bg{ z-index: 0; }
+.layer--media{ z-index: 1; }
+.layer--text{ z-index: 2; }
+.layer--fx{ z-index: 3; }
+
+/* ============================== 4) TYPOGRAPHY ============================= */
+.title{
+  margin:0 0 .35em;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: var(--fs-title);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+.subtitle{
+  margin:.2em 0 .5em;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: var(--fs-subtitle);
+  line-height:1.18;
+  letter-spacing:-0.008em;
+  color: var(--color-plum);
+}
+.lead{
+  margin:.5em 0;
+  font-size: var(--fs-lead);
+  line-height:1.45;
+  color: var(--color-muted);
+}
+.body{
+  margin:.6em 0;
+  font-size: var(--fs-body);
+  line-height:1.55;
+  color: var(--color-ink);
+}
+.highlight{
+  background: linear-gradient(transparent 60%, rgba(231,212,187,.66) 60%);
+  padding: 0 .06em;
+}
+
+/* Caption block anchored near bottom safe area if needed */
+.caption{
+  position:absolute; left: var(--pad); right: var(--pad); bottom: var(--pad);
+  font-size: var(--fs-caption);
+  line-height:1.4;
+  color: color-mix(in srgb, var(--color-ink) 80%, #0000);
+  background: linear-gradient(180deg, rgba(255,255,255,.0), rgba(255,255,255,.65));
+  padding: .6em .8em;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ============================== 5) MEDIA BLOCK ============================ */
+/* Photo lives inside a card-like frame (not full-bleed) */
+.photo{
+  position:absolute;
+  /* Default placement; JS/timeline will update transforms */
+  top: var(--pad); left: var(--pad); right: var(--pad);
+  /* reserve bottom for caption/callouts by default */
+  bottom: calc(var(--safe-bottom) + var(--pad));
+  border-radius: var(--radius);
+  background: linear-gradient(180deg,#fcf7ee 0%, #fffaf3 100%);
+  border:1px solid var(--color-sand);
+  box-shadow: var(--shadow-sm);
+  overflow:hidden;
+  display:grid; place-items:center;
+}
+.photo > img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  filter: saturate(0.96) contrast(1.02);
+}
+
+/* Optional photo credit */
+.credit{
+  position:absolute; right:10px; bottom:10px;
+  font-size: 11px; line-height:1;
+  color: rgba(41,40,30,.72);
+  background: rgba(255,255,244,.78);
+  padding:.35em .5em; border-radius: 8px;
+  border:1px solid rgba(231,212,187,.6);
+}
+
+/* ============================== 6) CALLOUTS =============================== */
+/* Documentary-style pointer from the image to explanatory text */
+.callout{
+  position:absolute;
+  /* default near lower-left of photo; timeline should position per-scene */
+  left: calc(var(--pad) + 12px);
+  bottom: calc(var(--safe-bottom) + 12px);
+  display:flex; align-items:center; gap:10px;
+  max-width: min(76%, 720px);
+}
+.callout__line{
+  --line: color-mix(in srgb, var(--color-plum) 32%, transparent);
+  height:2px; width:72px; flex:0 0 auto;
+  background: linear-gradient(90deg, var(--line), transparent);
+  border-radius: 2px;
+}
+.callout__bubble{
+  background: rgba(231,212,187,.22);
+  border:1px solid var(--color-sand);
+  color: var(--color-ink);
+  padding:.55em .7em;
+  border-radius: 12px;
+  font-size: var(--fs-caption);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(2px);
+}
+
+/* ============================== 7) FX LAYERS ============================== */
+/* Subtle film grain & vignette for social-media polish */
+.fx-grain{
+  position:absolute; inset:0; pointer-events:none; z-index:3;
+  background-image: url("../assets/overlays/grain_02.png"); /* optional asset */
+  background-size: 300px 300px; opacity:.22; mix-blend-mode: multiply;
+}
+.fx-vignette{
+  position:absolute; inset:-8%; pointer-events:none; z-index:3;
+  background: radial-gradient(70% 70% at 50% 50%, rgba(0,0,0,0) 60%, rgba(0,0,0,.18) 100%);
+}
+
+/* ============================== 8) UTILITIES ============================== */
+.center{ display:grid; place-items:center; }
+.pad{ padding: var(--pad); }
+.hide{ display:none !important; }
+.muted{ color: var(--color-muted); }
+.accent{ color: var(--color-plum); }
+.upper{ text-transform: uppercase; letter-spacing:.08em; }
+
+/* Recording helpers:
+   - .recording-mode: ensures no scrollbars/cursor distractions during capture */
+.recording-mode{ cursor:none; }
+.recording-mode, .recording-mode body{ overflow:hidden; }
+
+/* ============================== 9) REDUCED MOTION ========================= */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* ============================== 10) DARK BACKDROP (optional) ============= */
+/* For sequences where a darker canvas helps contrast the photo/text */
+.theme--dark body{ background: #151313; color: #f4efe6; }
+.theme--dark .frame-916{ background: #181615; outline-color: rgba(255,255,255,.06); }
+.theme--dark .caption{ background: linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.55)); color: rgba(255,255,255,.92); }
+.theme--dark .callout__bubble{
+  background: rgba(72,37,47,.25);
+  border-color: color-mix(in srgb, var(--color-plum) 30%, transparent);
+  color: #f7f1e8;
+}
