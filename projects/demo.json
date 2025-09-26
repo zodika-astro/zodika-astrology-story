@@ -1,0 +1,90 @@
+{
+  "theme": "light",
+  "duration": 27,
+  "scenes": [
+    {
+      "d": 6.0,
+      "media": {
+        "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 1920'><defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%23fff7ec'/><stop offset='1' stop-color='%23f3e6d3'/></linearGradient></defs><rect width='1080' height='1920' fill='url(%23g)'/></svg>",
+        "credit": "demo bg",
+        "kenburns": "slow"
+      },
+      "text": [
+        { "role": "title", "html": "o mapa como <span class='highlight fx-underline'>documento</span>", "at": 0.4, "effects": ["fx-fade-up","fx-underline"] },
+        { "role": "lead",  "html": "narrativa fluida • imagens destacadas • leitura guiada", "at": 1.1, "effects": ["fx-fade-up"] }
+      ],
+      "callouts": [
+        { "html": "assinaturas, datas, lacres — pistas", "at": 2.0, "x": 0.12, "y": 0.86 }
+      ],
+      "transitionIn": "light-wipe",
+      "transitionOut": "crossfade"
+    },
+    {
+      "d": 5.4,
+      "media": {
+        "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 1920'><defs><linearGradient id='g' x1='1' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%23fff2ee'/><stop offset='1' stop-color='%23f1e4d9'/></linearGradient></defs><rect width='1080' height='1920' fill='url(%23g)'/></svg>",
+        "credit": "demo bg",
+        "kenburns": "left"
+      },
+      "text": [
+        { "role": "subtitle", "html": "ler <span class='highlight'>relações</span>, não só fatos", "at": 0.4, "effects": ["fx-fade-up"] }
+      ],
+      "callouts": [
+        { "html": "contexto = como as peças se conectam", "at": 0.9, "x": 0.85, "y": 0.22 },
+        { "html": "contraste revela ênfases", "at": 2.1, "x": 0.85, "y": 0.50 }
+      ],
+      "transitionIn": "swipe",
+      "transitionOut": "crossfade"
+    },
+    {
+      "d": 5.2,
+      "media": {
+        "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 1920'><defs><linearGradient id='g' x1='0' y1='1' x2='1' y2='0'><stop offset='0' stop-color='%23fffaf1'/><stop offset='1' stop-color='%23f0e8de'/></linearGradient></defs><rect width='1080' height='1920' fill='url(%23g)'/></svg>",
+        "credit": "demo bg",
+        "kenburns": "right"
+      },
+      "text": [
+        { "role": "title",   "html": "texto puxa <span class='highlight fx-underline'>da imagem</span>", "at": 0.5, "effects": ["fx-fade-up","fx-underline"] },
+        { "role": "caption", "html": "movimento sutil mantém a vida do quadro", "at": 3.8, "effects": ["fx-fade"] }
+      ],
+      "callouts": [
+        { "html": "área de foco", "at": 1.3, "x": 0.18, "y": 0.52 }
+      ],
+      "transitionIn": "crossfade",
+      "transitionOut": "zoom"
+    },
+    {
+      "d": 5.5,
+      "media": {
+        "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 1920'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23fff7f8'/><stop offset='1' stop-color='%23efe6f0'/></linearGradient></defs><rect width='1080' height='1920' fill='url(%23g)'/></svg>",
+        "credit": "demo bg",
+        "kenburns": "up"
+      },
+      "text": [
+        { "role": "subtitle", "html": "cinema social: <span class='highlight'>clean</span> e legível", "at": 0.5 },
+        { "role": "lead",     "html": "sempre dentro da safe area do app", "at": 1.2 }
+      ],
+      "callouts": [
+        { "html": "bordas seguras (UI do app)", "at": 2.0, "x": 0.86, "y": 0.86 }
+      ],
+      "transitionIn": "zoom",
+      "transitionOut": "crossfade"
+    },
+    {
+      "d": 4.9,
+      "media": {
+        "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 1920'><defs><linearGradient id='g' x1='0' y1='1' x2='0' y2='0'><stop offset='0' stop-color='%23fff4ea'/><stop offset='1' stop-color='%23f7efe3'/></linearGradient></defs><rect width='1080' height='1920' fill='url(%23g)'/></svg>",
+        "credit": "demo bg",
+        "kenburns": "slow"
+      },
+      "text": [
+        { "role": "title",   "html": "pronto pra gravar", "at": 0.6 },
+        { "role": "lead",    "html": "abra com <span class='highlight'>?project=demo</span> e grave a tela", "at": 1.2 },
+        { "role": "caption", "html": "Dica: use ?delay=1 para começar com 1s de respiro", "at": 3.2 }
+      ],
+      "callouts": [],
+      "transitionIn": "crossfade",
+      "transitionOut": "crossfade"
+    }
+  ]
+}
