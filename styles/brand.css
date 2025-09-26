@@ -273,3 +273,73 @@ body{
   border-color: color-mix(in srgb, var(--color-plum) 30%, transparent);
   color: #f7f1e8;
 }
+
+/* ===== Overrides focados em 9:16 para post1 ===== */
+
+/* 1) Tipografia mais contida no 9:16 */
+.frame-916 [data-role="title"],
+.frame-916 .title,
+.frame-916 .text--title {
+  font-size: clamp(26px, 4.6vw, 44px);
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+}
+
+.frame-916 [data-role="lead"],
+.frame-916 .lead,
+.frame-916 .text--lead {
+  font-size: clamp(18px, 3.1vw, 26px);
+  line-height: 1.36;
+}
+
+.frame-916 [data-role="body"],
+.frame-916 .body,
+.frame-916 .text--body,
+.frame-916 [data-role="subtitle"],
+.frame-916 .subtitle {
+  font-size: clamp(17px, 2.8vw, 24px);
+  line-height: 1.45;
+}
+
+/* largura máxima do texto para não esmagar a imagem */
+.frame-916 .text-block,
+.frame-916 .zdk-text {
+  max-width: 86%;
+  margin-left: 7%;
+}
+
+/* 2) Imagem em container, não em background — proporção confortável */
+.frame-916 .photo {
+  width: 86%;
+  max-width: 860px;
+  height: min(52vh, 620px);
+  margin: 10px auto 6px;
+  border-radius: 20px;
+  border: 1px solid rgba(231,212,187,.9);
+  background: #fff8ef;
+  box-shadow: 0 8px 28px rgba(16,18,17,.08);
+  overflow: hidden;
+}
+
+.frame-916 .photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* <<< garante “contida” */
+  object-position: center;
+  display: block;
+}
+
+/* 3) créditos/callouts mais discretos e alinhados */
+.frame-916 .media-credit,
+.frame-916 .credit {
+  font-size: 12px;
+  opacity: .8;
+}
+.frame-916 .callout {
+  font-size: 15px;
+  max-width: 78%;
+}
+
+/* 4) segurança: nunca cortar conteúdo no topo */
+.frame-916 { padding: 18px 14px 20px; }
+
