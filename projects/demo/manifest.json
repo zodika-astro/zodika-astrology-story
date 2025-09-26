@@ -1,0 +1,55 @@
+{
+  "theme": "light",
+  "duration": 22,
+  "scenes": [
+    {
+      "d": 5.5,
+      "media": {
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9Yw0q1QAAAAASUVORK5CYII="
+      },
+      "text": [
+        { "role": "title", "html": "Zodika — fluxo documentário", "at": 0.4, "effects": ["fx-fade-up","fx-underline"] },
+        { "role": "lead",  "html": "story em 9:16, contínuo, pronto pra screen record", "at": 1.0, "effects": ["fx-fade-up"] }
+      ],
+      "transitionIn": "light-wipe",
+      "transitionOut": "crossfade"
+    },
+    {
+      "d": 5.0,
+      "media": {
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9Yw0q1QAAAAASUVORK5CYII="
+      },
+      "text": [
+        { "role": "subtitle", "html": "texto puxa da narrativa, não o contrário", "at": 0.5, "effects": ["fx-fade-up"] },
+        { "role": "caption",  "html": "tempos ajustáveis por cena (d) e por bloco (at)", "at": 3.3, "effects": ["fx-fade"] }
+      ],
+      "transitionIn": "swipe",
+      "transitionOut": "crossfade"
+    },
+    {
+      "d": 5.0,
+      "media": {
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9Yw0q1QAAAAASUVORK5CYII="
+      },
+      "text": [
+        { "role": "title", "html": "tipos: <em>title</em>, <em>subtitle</em>, <em>lead</em>, <em>caption</em>", "at": 0.6, "effects": ["fx-fade-up"] },
+        { "role": "lead",  "html": "efeitos via classes do effects.css", "at": 1.2, "effects": ["fx-fade-up"] }
+      ],
+      "transitionIn": "crossfade",
+      "transitionOut": "zoom"
+    },
+    {
+      "d": 6.5,
+      "media": {
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9Yw0q1QAAAAASUVORK5CYII="
+      },
+      "text": [
+        { "role": "title",   "html": "pronto para o primeiro take", "at": 0.6, "effects": ["fx-fade-up","fx-underline"] },
+        { "role": "lead",    "html": "abra com <code>?project=demo&amp;delay=1</code> e grave", "at": 1.2, "effects": ["fx-fade-up"] },
+        { "role": "caption", "html": "use <code>?theme=dark</code> se quiser fundo escuro", "at": 3.6, "effects": ["fx-fade"] }
+      ],
+      "transitionIn": "crossfade",
+      "transitionOut": "crossfade"
+    }
+  ]
+}
