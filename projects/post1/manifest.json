@@ -1,82 +1,62 @@
 {
   "theme": "light",
-  "duration": 40,
+  "duration": 51,
   "scenes": [
     {
-      "d": 6.4,
-      "media": { "src": "images/capricho.jpg", "credit": "acervo / uso editorial", "kenburns": "slow" },
+      "d": 4.8,
+      "media": { "src": "images/capricho.webp", "kenburns": "slow" },
       "text": [
-        { "role": "title", "html": "você acha que astrologia nasceu no <span class='highlight fx-underline'>horóscopo da capricho</span>?", "at": 0.4, "effects": ["fx-fade-up","fx-underline"] },
-        { "role": "lead",  "html": "story investigativo • imagens em containers • leitura fluida", "at": 1.2, "effects": ["fx-fade-up"] }
+        { "role": "body", "html": "você acha que astrologia nasceu no horóscopo da capricho?", "at": 0.4, "effects": ["fx-fade-up"] }
       ],
-      "callouts": [
-        { "html": "ponto de partida: cultura pop", "at": 2.0, "x": 0.18, "y": 0.86 }
-      ],
+      "callouts": [],
       "transitionIn": "light-wipe",
       "transitionOut": "crossfade"
     },
     {
-      "d": 6.8,
-      "media": { "src": "images/tablet.jpg", "credit": "tabletes babilônicos", "kenburns": "left" },
+      "d": 9.0,
+      "media": { "src": "images/tablet.webp", "kenburns": "left" },
       "text": [
-        { "role": "subtitle", "html": "não mesmo. <span class='highlight'>babilônios</span> já faziam <strong>mapa astral</strong>", "at": 0.5, "effects": ["fx-fade-up"] },
-        { "role": "lead",     "html": "≈ 4.000 anos atrás • <span class='fx-underline'>constelações</span>, zodíaco e interpretações", "at": 1.4, "effects": ["fx-fade-up"] }
+        { "role": "body", "html": "não mesmo, os babilônios já faziam mapa astral 2.000 anos antes mesmo da bíblia ser escrita, há mais de 4000 anos atras, um estudo detalhado com desenhos de constelações, zodiaco e interpretações,", "at": 0.5, "effects": ["fx-fade-up"] }
       ],
-      "callouts": [
-        { "html": "observação sistemática do céu", "at": 2.2, "x": 0.82, "y": 0.22 }
-      ],
+      "callouts": [],
       "transitionIn": "swipe",
       "transitionOut": "crossfade"
     },
     {
-      "d": 6.5,
-      "media": { "src": "images/athens.jpg", "credit": "atenas clássica", "kenburns": "right" },
+      "d": 9.0,
+      "media": { "src": "images/athens.webp", "kenburns": "right" },
       "text": [
-        { "role": "title", "html": "com o império grego, <span class='highlight'>Platão</span> e <span class='highlight'>Aristóteles</span>", "at": 0.6, "effects": ["fx-fade-up"] },
-        { "role": "lead",  "html": "astrologia como parte da <strong>filosofia</strong> e do debate público", "at": 1.4, "effects": ["fx-fade-up"] },
-        { "role": "caption", "html": "influência em política, eventos históricos e natureza", "at": 3.6, "effects": ["fx-fade"] }
+        { "role": "body", "html": "com o dominío do império grego, platão e aristóteles tratavam astrologia como parte da filosofia, influenciando na política, acontecimentos históricos e manifestações naturais,", "at": 0.6, "effects": ["fx-fade-up"] }
       ],
-      "callouts": [
-        { "html": "integração com pensamento filosófico", "at": 2.2, "x": 0.18, "y": 0.52 }
-      ],
+      "callouts": [],
       "transitionIn": "crossfade",
       "transitionOut": "zoom"
     },
     {
-      "d": 6.4,
-      "media": { "src": "images/elizabeth.jpg", "credit": "coroação de Elizabeth I", "kenburns": "up" },
+      "d": 12.0,
+      "media": { "src": "images/elizabeth.webp", "kenburns": "up" },
       "text": [
-        { "role": "subtitle", "html": "1559: <span class='highlight'>Elizabeth I</span> é coroada", "at": 0.5, "effects": ["fx-fade-up"] },
-        { "role": "lead",     "html": "data escolhida pelo astrólogo da rainha", "at": 1.2, "effects": ["fx-fade-up"] },
-        { "role": "caption",  "html": "hoje, chamam de “pseudociência”… e tem gente que compra iPhone em mercúrio retrógrado 😅", "at": 3.2, "effects": ["fx-fade"] }
+        { "role": "body", "html": "hoje morreriam ao saber que anos depois, é considerada “pseudociência”, para se ter uma idéia, em 1559, elizabeth I só foi coroada depois que seu astrólogo escolheu a data mais favorável pra assumir o reinado, em contraste, hoje tem gente que até compra iphone em mercúrio retrógrado.", "at": 0.5, "effects": ["fx-fade-up"] }
       ],
-      "callouts": [
-        { "html": "decisão estratégica de calendário", "at": 2.0, "x": 0.82, "y": 0.82 }
-      ],
+      "callouts": [],
       "transitionIn": "crossfade",
       "transitionOut": "crossfade"
     },
     {
-      "d": 6.6,
-      "media": { "src": "images/jung.jpg", "credit": "Carl Jung", "kenburns": "down" },
+      "d": 9.0,
+      "media": { "src": "images/jung.webp", "kenburns": "down" },
       "text": [
-        { "role": "title", "html": "Carl Jung, pai da psicologia moderna", "at": 0.6, "effects": ["fx-fade-up","fx-underline"] },
-        { "role": "lead",  "html": "“astrologia representa a soma do conhecimento psicológico da antiguidade”", "at": 1.4, "effects": ["fx-fade-up"] },
-        { "role": "caption", "html": "não prevê o futuro; revela <span class='highlight'>olhares</span> de culturas sobre a vida", "at": 3.6, "effects": ["fx-fade"] }
+        { "role": "body", "html": "ainda acha astrologia é só fantasia medieval? o pai da psicologia moderna, carl jung, dedicou anos de estudos e concluiu que “astrologia representa a soma de todo o conhecimento psicológico da antiguidade”,", "at": 0.6, "effects": ["fx-fade-up"] }
       ],
-      "callouts": [
-        { "html": "ponte entre símbolo e psiquê", "at": 2.2, "x": 0.18, "y": 0.82 }
-      ],
+      "callouts": [],
       "transitionIn": "zoom",
       "transitionOut": "crossfade"
     },
     {
-      "d": 6.3,
-      "media": { "src": "images/productimage.png", "credit": "Zodika", "kenburns": "slow" },
+      "d": 7.0,
+      "media": { "src": "images/productimage.webp", "kenburns": "slow" },
       "text": [
-        { "role": "title",   "html": "zodika: enxergue relações, não ruído", "at": 0.6, "effects": ["fx-fade-up","fx-underline"] },
-        { "role": "lead",    "html": "mapa bem contado • 9:16 • pronto pra reels", "at": 1.3, "effects": ["fx-fade-up"] },
-        { "role": "caption", "html": "abra com <code>?project=post1&amp;delay=1</code> e grave sua tela", "at": 3.2, "effects": ["fx-fade"] }
+        { "role": "body", "html": "a astrologia é um estudo milenar, atravessou impérios, filósofos e cientistas, não prevê o futuro mas revela um olhar de diferentes culturas para compreender a vida.", "at": 0.6, "effects": ["fx-fade-up"] }
       ],
       "callouts": [],
       "transitionIn": "crossfade",
